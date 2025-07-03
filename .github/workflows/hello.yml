@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   say-hello:
- 	  runs-on: ubuntu-latest
-	  steps:
-	    - name: Print Helllo
-		    run: echo "Hello World from Github Actions"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello
+        run: echo "Hello World from GitHub Actions"
