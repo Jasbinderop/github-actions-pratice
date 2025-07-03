@@ -3,8 +3,8 @@ name: Hello World workflow
 on: [push]
 
 jobs:
-	say-hello:
-		runs-on: ubuntu-latest
-		steps:
-			- name: Print Helllo
-			  run: echo "Hello World from Github Actions"
+ say-hello:
+ 	runs-on: ubuntu-latest
+	steps:
+	 - name: Print Helllo
+		 run: echo "Hello World from Github Actions"
