@@ -7,8 +7,15 @@ on:
       - 'main'
       - 'feature-**'
 jobs:
-  say-hello:
+  job-1:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Hello
-        run: echo "Hello World from GitHub Actions"
+      - name: JOB 1
+        run: echo "job one is complete"
+  job-2:
+    needs: job-1
+    runs-on: ubuntu-latest
+    steps:
+      - name: JOB 2
+        run: echo "job two runs after job 1"
+
