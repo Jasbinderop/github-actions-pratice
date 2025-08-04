@@ -8,12 +8,18 @@ on:
       - 'feature-**'
 jobs:
   job-1:
-    runs-on: ubuntu-latest
+    runs-on: ubuantu-latest
     steps:
       - name: JOB 1
         run: |
           echo "job one is starts"
-          exit 1
+          2> error.log
+      - name: uuploading artifact
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: error logs
+          path: error.log
   job-2:
     needs: job-1
     if: success()
@@ -21,6 +27,17 @@ jobs:
     steps:
       - name: JOB 2
         run: echo "job two runs after job 1"
+  job-3:
+    needs: job-1
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: JOB 3
+        run: |
+          echo "this job runs if job-1 failed" 
+       
 
+
+      
 
 
